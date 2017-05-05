@@ -5,25 +5,17 @@ pipeline {
       jdk 'jdk8'
   }
   stages {
-    stage('compile') {
+    stage('程式掃描') {
+      //TODO
+    }
+    stage('編譯, 單元測試, 程式構建, 上傳構建儲存庫') {
       steps {
-        sh 'mvn clean package'
+        sh 'mvn clean install'
       }
     }
-    stage('archive') {
-      steps {
-        parallel(
-          "Junit": {
-            junit 'target/surefire-reports/*.xml'
-
-          },
-          "Archive": {
-            archiveArtifacts(artifacts: 'target/Nadia.jar', onlyIfSuccessful: true, fingerprint: true)
-            archiveArtifacts(artifacts: 'target/Nadia*javadoc.jar', fingerprint: true)
-
-          }
-        )
-      }
+    stage('部署測試環境') {
+    }
+    stage('整合測試') {
     }
   }
 }
