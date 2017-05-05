@@ -2,7 +2,6 @@ pipeline {
   agent any
   environment {
        REPO_SIT = 'http://nexus_nexus_1:8081/repository/SIT/'
-       snapshot-repository-path = 'http://nexus_nexus_1:8081/repository/SIT/'
   }
   tools {
       maven 'Default'

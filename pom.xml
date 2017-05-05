@@ -76,7 +76,7 @@
 		  <uniqueVersion>true</uniqueVersion>
 		  <id>Nexus_SIT</id>
 		  <name>Propellors Snapshots</name>
-		  <url>${snapshot-repository-path}</url>
+		  <url>${REPO_SIT}</url>
 		</snapshotRepository>
 	</distributionManagement>
 </project>
