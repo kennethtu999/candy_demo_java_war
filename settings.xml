@@ -180,6 +180,15 @@ under the License.
    |
    |-->
   <profiles>
+    <profile>
+      <id>default</id>
+      <repositories>
+          <repository>
+              <id>Nexus_SIT</id>
+              <url>http://nexus_nexus_1:8081/repository/SIT/</url>
+          </repository>
+      </repositories>
+    </profile>
     <!-- profile
      | Specifies a set of introductions to the build process, to be activated using one or more of the
      | mechanisms described above. For inheritance purposes, and to activate profiles via <activatedProfiles/>
@@ -248,10 +257,9 @@ under the License.
 
   <!-- activeProfiles
    | List of profiles that are active for all builds.
-   |
+   |-->
   <activeProfiles>
-    <activeProfile>alwaysActiveProfile</activeProfile>
-    <activeProfile>anotherAlwaysActiveProfile</activeProfile>
+    <activeProfile>default</activeProfile>
   </activeProfiles>
-  -->
+
 </settings>
