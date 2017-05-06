@@ -13,14 +13,9 @@ pipeline {
         echo 'TODO 程式掃描'
       }
     }
-    stage('編譯, 單元測試, 程式構建') {
+    stage('編譯, 單元測試, 程式構建, 上傳構建儲存庫') {
       steps {
-        sh 'mvn clean package '
-      }
-    }
-    stage('上傳構建儲存庫') {
-      steps {
-        sh 'mvn -s settings.xml deploy -Dmaven.test.skip=true'
+        sh 'mvn -s settings.xml clean package deploy'
       }
     }
     stage('部署測試環境') {
