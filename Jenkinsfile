@@ -15,12 +15,12 @@ pipeline {
     }
     stage('編譯, 單元測試, 程式構建') {
       steps {
-        sh 'mvn clean package'
+        sh 'mvn clean package '
       }
     }
     stage('上傳構建儲存庫') {
       steps {
-        sh 'mvn deploy'
+        sh 'mvn -s settings.xml deploy -Dmaven.test.skip=true'
       }
     }
     stage('部署測試環境') {
