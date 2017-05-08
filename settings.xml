@@ -154,6 +154,7 @@ under the License.
       <name>self hosted repository</name>
       <url>http://172.30.0.11:8081/repository/maven-public/</url>
       <mirrorOf>*</mirrorOf>
+    </mirror>
   </mirrors>
 
   <!-- profiles
