@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-       REPO_SIT2 = 'http://172.30.0.11:8081/repository/SIT/'
+       REPO_SIT = 'http://172.30.0.11:8081/repository/SIT/'
   }
   tools {
       maven 'Default'
