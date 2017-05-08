@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('INIT') {
       steps {
-        export REPO_SIT=$(echo 'foo' | rev)
+        echo 'TODO INIT'
       }
     }
     stage('程式掃描') {
