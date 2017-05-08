@@ -1,13 +1,18 @@
 pipeline {
   agent any
   environment {
-       REPO_SIT = 'http://nexus_nexus_1:8081/repository/SIT/'
+       REPO_SIT2 = 'http://172.30.0.11:8081/repository/SIT/'
   }
   tools {
       maven 'Default'
       jdk 'jdk8'
   }
   stages {
+    stage('INIT') {
+      steps {
+        export REPO_SIT=$(echo 'foo' | rev)
+      }
+    }
     stage('程式掃描') {
       steps {
         echo 'TODO 程式掃描'
