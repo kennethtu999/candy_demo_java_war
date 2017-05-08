@@ -20,7 +20,7 @@ pipeline {
     }
     stage('編譯, 單元測試, 程式構建, 上傳構建儲存庫') {
       steps {
-        sh 'mvn -s settings.xml clean package deploy'
+        sh 'mvn -s settings.xml clean package deploy -DuniqueVersion=false'
       }
     }
     stage('部署測試環境') {
