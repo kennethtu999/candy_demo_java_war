@@ -150,10 +150,11 @@ under the License.
      | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.
      |-->
     <mirror>
-      <id>hostedRepo</id>
-      <mirrorOf>hostedRepo</mirrorOf>
+      <id>central</id>
+      <mirrorOf>central</mirrorOf>
       <name>self hosted repository</name>
       <url>http://172.30.0.11:8081/repository/maven-public/</url>
+      <mirrorOf>*</mirrorOf>
     </mirror>
 
   </mirrors>
