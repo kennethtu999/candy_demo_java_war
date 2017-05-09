@@ -15,15 +15,13 @@ pipeline {
         echo 'TODO 程式掃描'
       }
     }
-    stage('編譯, 單元測試, 程式構建, 上傳構建儲存庫') {
-      steps {
-        script {
-           def MVN_ACTION = 'deploy'
-           if  (BRANCH_NAME == 'master') {
-               MVN_ACTION = 'release'
-           }
+    node {
+      stage('編譯, 單元測試, 程式構建, 上傳構建儲存庫') {
+        if (BRANCH_NAME == 'master') {
+           sh 'mvn -s settings_${BRANCH_NAME}.xml clean package release'
+        } else {
+          sh 'mvn -s settings_${BRANCH_NAME}.xml clean package deploy'
         }
-        sh 'mvn -s settings_${BRANCH_NAME}.xml clean package ${MVN_ACTION}'
       }
     }
     stage('部署測試環境') {
