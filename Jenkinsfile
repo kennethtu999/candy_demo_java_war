@@ -18,7 +18,9 @@ pipeline {
       }
 
       steps {
-        MVN_ACTION = 'release'
+        script {
+          env['MVN_ACTION'] = 'release'
+        }
       }
     }
 
