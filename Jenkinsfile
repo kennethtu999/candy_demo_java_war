@@ -19,14 +19,20 @@ pipeline {
         echo 'TODO 程式掃描'
       }
     }
-    stage('編譯, 單元測試, 程式構建, 上傳構建儲存庫') {
+    stage('SIT/UAT 編譯, 單元測試, 程式構建, 上傳構建儲存庫') {
+      when {
+        expression { BRANCH_NAME != 'master' }
+      }
       steps {
-        if (BRANCH_NAME == 'master') {
-          sh 'mvn -s settings_${BRANCH_NAME}.xml clean package release'
-        } else {
-          sh 'mvn -s settings_${BRANCH_NAME}.xml clean package deploy'
-        }
-
+        sh 'mvn -s settings_${BRANCH_NAME}.xml clean package deploy'
+      }
+    }
+    stage('PROD 編譯, 單元測試, 程式構建, 上傳構建儲存庫') {
+      when {
+        expression { BRANCH_NAME == 'master' }
+      }
+      steps {
+        sh 'mvn -s settings_${BRANCH_NAME}.xml clean package release'
       }
     }
     stage('部署測試環境') {
