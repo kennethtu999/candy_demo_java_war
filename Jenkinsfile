@@ -30,9 +30,6 @@ pipeline {
       }
     }
     stage('編譯, 單元測試, 程式構建, 上傳構建儲存庫') {
-      when {
-        expression { BRANCH_NAME != 'master' }
-      }
       steps {
         sh 'mvn -s settings_${BRANCH_NAME}.xml clean package ${MVN_ACTION}'
       }
