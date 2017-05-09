@@ -18,9 +18,10 @@ pipeline {
     stage('編譯, 單元測試, 程式構建, 上傳構建儲存庫') {
       steps {
         script {
-           def MVN_ACTION = 'deploy'
            if  (BRANCH_NAME == 'master') {
-               MVN_ACTION = 'release'
+               env['MVN_ACTION'] = 'release'
+           } else {
+               env['MVN_ACTION'] = 'deploy'
            }
            sh 'mvn -s settings_${BRANCH_NAME}.xml clean package ${MVN_ACTION}'
         }
