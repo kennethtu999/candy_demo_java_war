@@ -70,13 +70,13 @@
 		<repository>
 		  <id>Nexus_PROD</id>
 		  <name>Internal Releases</name>
-		  <url>${prd-repository-path}</url>
+		  <url>${REPO}</url>
 		</repository>
 		<snapshotRepository>
 		  <uniqueVersion>false</uniqueVersion>
 		  <id>Nexus_SIT</id>
 		  <name>Propellors Snapshots</name>
-		  <url>${REPO_SIT}</url>
+		  <url>${REPO_SNAPSHOTS}</url>
 		</snapshotRepository>
 	</distributionManagement>
 </project>

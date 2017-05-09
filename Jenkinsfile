@@ -2,8 +2,7 @@ pipeline {
   agent any
   environment {
     REPO = 'http://172.30.0.11:8081/repository/maven-releases/'
-    REPO_SIT = 'http://172.30.0.11:8081/repository/maven-snapshots-SIT/'
-    REPO_UAT = 'http://172.30.0.11:8081/repository/maven-snapshots-UAT/'
+    REPO_SNAPSHOTS = 'http://172.30.0.11:8081/repository/maven-snapshots-${BRANCH_NAME}/'
   }
   tools {
       maven 'Default'
