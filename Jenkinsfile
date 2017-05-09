@@ -21,7 +21,12 @@ pipeline {
     }
     stage('編譯, 單元測試, 程式構建, 上傳構建儲存庫') {
       steps {
-        sh 'mvn -s settings${BRANCH_NAME}.xml clean package deploy'
+        if (BRANCH_NAME == 'master') {
+          sh 'mvn -s settings_${BRANCH_NAME}.xml clean package release'
+        } else {
+          sh 'mvn -s settings_${BRANCH_NAME}.xml clean package deploy'
+        }
+
       }
     }
     stage('部署測試環境') {
