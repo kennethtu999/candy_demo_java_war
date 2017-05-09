@@ -37,14 +37,6 @@ pipeline {
         sh 'mvn -s settings_${BRANCH_NAME}.xml clean package ${MVN_ACTION}'
       }
     }
-    stage('PROD 編譯, 單元測試, 程式構建, 上傳構建儲存庫') {
-      when {
-        expression { BRANCH_NAME == 'master' }
-      }
-      steps {
-        sh 'mvn -s settings_${BRANCH_NAME}.xml clean package release'
-      }
-    }
     stage('部署測試環境') {
       steps {
         echo 'TODO 部署測試環境'
