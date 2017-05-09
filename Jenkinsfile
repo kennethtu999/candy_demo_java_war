@@ -19,7 +19,7 @@ pipeline {
       steps {
         script {
            if  (BRANCH_NAME == 'master') {
-               env['MVN_ACTION'] = 'release'
+               env['MVN_ACTION'] = 'release:perform'
            } else {
                env['MVN_ACTION'] = 'deploy'
            }
