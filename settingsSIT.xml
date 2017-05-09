@@ -117,7 +117,7 @@ under the License.
      |       used together.
      |-->
     <server>
-      <id>Nexus_SIT</id>
+      <id>Nexus_Snapshots</id>
       <username>jenkins</username>
       <password>jenkins</password>
     </server>
