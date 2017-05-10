@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>tw.ibm.com</groupId>
 	<artifactId>candy_demo_web</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<packaging>war</packaging>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -76,7 +76,7 @@
 		 <connection>scm:git:https://github.com/kennethtu999/candy_demo_java_war.git</connection>
 		 <url>https://github.com/kennethtu999/candy_demo_java_war</url>
 		 <developerConnection>scm:git:https://github.com/kennethtu999/candy_demo_java_war.git</developerConnection>
-		 <tag>v0.0.1</tag>
+		 <tag>v0.0.2</tag>
 	</scm>
 	<distributionManagement>
 		<repository>
