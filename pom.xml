@@ -59,13 +59,20 @@
 	    </plugin>
 		</plugins>
 	</build>
-
+  <!--
 	<scm>
 	   <connection>scm:git:http://devops@localhost:10080/devops/candy_demo_java_war.git</connection>
 	   <url>https://github.com/kennethtu999/candy_demo_java_war</url>
 	   <developerConnection>scm:git:http://devops@localhost:10080/devops/candy_demo_java_war.git</developerConnection>
 	  <tag>Candy_Demo_Web_0.0.1</tag>
-    </scm>
+  </scm>
+	-->
+	<scm>
+		 <connection>scm:git:https://github.com/kennethtu999/candy_demo_java_war.git</connection>
+		 <url>https://github.com/kennethtu999/candy_demo_java_war</url>
+		 <developerConnection>scm:git:https://github.com/kennethtu999/candy_demo_java_war.git</developerConnection>
+		 <tag>Candy_Demo_Web_0.0.1</tag>
+	</scm>
 	<distributionManagement>
 		<repository>
 		  <id>Nexus_Release</id>
