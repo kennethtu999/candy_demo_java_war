@@ -187,12 +187,13 @@ under the License.
       <id>releases</id>
       <repositories>
         <repository>
-            <id>Nexus_SIT</id>
+            <id>nexus-snapshots</id>
+            <name>snapshot Distribution Repository</name>
             <url>http://192.168.99.102:10083/repository/maven-snapshots-UAT/</url>
         </repository>
           <repository>
               <id>nexus-releases</id>
-              <name>Release Distribution Repository</name>     
+              <name>Release Distribution Repository</name>
               <url>http://192.168.99.102:10083/repository/maven-release/</url>
           </repository>
       </repositories>

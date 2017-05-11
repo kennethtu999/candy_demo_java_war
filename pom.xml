@@ -116,14 +116,14 @@
 	</scm>
 	<distributionManagement>
 		<repository>
-		  <id>Nexus_Release</id>
-		  <name>Internal Releases</name>
+		  <id>nexus-releases</id>
+		  <name>Releases</name>
 		  <url>${REPO}</url>
 		</repository>
 		<snapshotRepository>
 		  <uniqueVersion>false</uniqueVersion>
-		  <id>Nexus_Snapshots</id>
-		  <name>Propellors Snapshots</name>
+		  <id>nexus-snapshots</id>
+		  <name>Snapshots</name>
 		  <url>${REPO_SNAPSHOTS}</url>
 		</snapshotRepository>
 	</distributionManagement>
