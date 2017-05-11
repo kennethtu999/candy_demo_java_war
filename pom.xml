@@ -111,13 +111,13 @@
 		<repository>
 		  <id>nexus-releases</id>
 		  <name>Releases</name>
-		  <url>${REPO}</url>
+		  <url>${REPO_RELEASE}</url>
 		</repository>
 		<snapshotRepository>
 		  <uniqueVersion>false</uniqueVersion>
 		  <id>nexus-snapshots</id>
 		  <name>Snapshots</name>
-		  <url>${REPO_SNAPSHOTS}</url>
+		  <url>${REPO_SNAPSHOT}</url>
 		</snapshotRepository>
 	</distributionManagement>
 </project>
