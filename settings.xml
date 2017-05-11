@@ -138,7 +138,7 @@ under the License.
           <repository>
               <id>nexus-releases</id>
               <name>Release Distribution Repository</name>
-              <url>http://192.168.99.102:10083/repository/maven-release/</url>
+              <url>http://192.168.99.102:10083/repository/maven-release-ALL/</url>
           </repository>
       </repositories>
     </profile>

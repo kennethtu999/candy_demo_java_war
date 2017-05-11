@@ -121,25 +121,27 @@ under the License.
     <mirror>
       <id>central</id>
       <name>self hosted repository</name>
-      <url>http://172.30.0.11:8081/repository/maven-public/</url>
+      <url>http://192.168.99.102:10083/repository/maven-public-SIT/</url>
       <mirrorOf>*</mirrorOf>
     </mirror>
   </mirrors>
 
   <profiles>
-    <id>releases</id>
-    <repositories>
-      <repository>
-          <id>nexus-snapshots</id>
-          <name>snapshot Distribution Repository</name>
-          <url>http://172.30.0.11:8081/repository/maven-snapshots-SIT/</url>
-      </repository>
+    <profile>
+      <id>releases</id>
+      <repositories>
         <repository>
-            <id>nexus-releases</id>
-            <name>Release Distribution Repository</name>
-            <url>http://172.30.0.11:8081/repository/maven-release-ALL/</url>
+            <id>nexus-snapshots</id>
+            <name>snapshot Distribution Repository</name>
+            <url>http://172.30.0.11:8081/repository/maven-snapshots-SIT/</url>
         </repository>
-    </repositories>
+          <repository>
+              <id>nexus-releases</id>
+              <name>Release Distribution Repository</name>
+              <url>http://172.30.0.11:8081/repository/maven-release-ALL/</url>
+          </repository>
+      </repositories>
+    </profile>
   </profiles>
 
   <activeProfiles>
