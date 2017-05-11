@@ -23,7 +23,7 @@ pipeline {
            } else {
                env['MVN_ACTION'] = 'deploy'
            }
-           sh 'mvn --batch-mode -s settings_${BRANCH_NAME}.xml clean package ${MVN_ACTION}'
+           sh 'mvn -DpushChanges=false -s settings_${BRANCH_NAME}.xml clean package ${MVN_ACTION} -D'
         }
       }
     }
