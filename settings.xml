@@ -122,7 +122,7 @@ under the License.
       <password>jenkins</password>
     </server>
     <server>
-      <id>Nexus_Release</id>
+      <id>nexus-releases</id>
       <username>jenkins</username>
       <password>jenkins</password>
     </server>
@@ -191,7 +191,8 @@ under the License.
             <url>http://192.168.99.102:10083/repository/maven-snapshots-UAT/</url>
         </repository>
           <repository>
-              <id>Nexus_Release</id>
+              <id>nexus-releases</id>
+              <name>Release Distribution Repository</name>     
               <url>http://192.168.99.102:10083/repository/maven-release/</url>
           </repository>
       </repositories>
