@@ -117,7 +117,7 @@ under the License.
      |       used together.
      |-->
     <server>
-      <id>Nexus_Snapshots</id>
+      <id>nexus-snapshots</id>
       <username>jenkins</username>
       <password>jenkins</password>
     </server>
@@ -189,7 +189,7 @@ under the License.
         <repository>
             <id>nexus-snapshots</id>
             <name>snapshot Distribution Repository</name>
-            <url>http://192.168.99.102:10083/repository/maven-snapshots-UAT/</url>
+            <url>http://192.168.99.102:10083/repository/maven-snapshots-SIT/</url>
         </repository>
           <repository>
               <id>nexus-releases</id>
