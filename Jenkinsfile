@@ -1,8 +1,8 @@
 pipeline {
   agent any
   environment {
-    REPO = 'http://172.30.0.11:8081/repository/maven-releases/'
-    REPO_SNAPSHOTS = 'http://172.30.0.11:8081/repository/maven-snapshots-${BRANCH_NAME}/'
+    REPO_REPOSITORY = 'http://172.30.0.11:8081/repository/maven-release-ALL/'
+    REPO_SNAPSHOT = 'http://172.30.0.11:8081/repository/maven-snapshots-${BRANCH_NAME}/'
   }
   tools {
       maven 'Default'
@@ -19,11 +19,11 @@ pipeline {
       steps {
         script {
            if  (BRANCH_NAME == 'master') {
-               env['MVN_ACTION'] = 'release:perform'
+               env['MVN_ACTION'] = 'release:clean release:prepare release:perform'
            } else {
                env['MVN_ACTION'] = 'deploy'
            }
-           sh 'mvn -s settings_${BRANCH_NAME}.xml clean package ${MVN_ACTION}'
+           sh 'mvn --batch-mode -s settings_${BRANCH_NAME}.xml clean package ${MVN_ACTION}'
         }
       }
     }
