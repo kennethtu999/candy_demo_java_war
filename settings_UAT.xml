@@ -105,18 +105,16 @@ under the License.
   </proxies>
 
   <servers>
-    <servers>
-      <server>
-        <id>nexus-snapshots</id>
-        <username>jenkins</username>
-        <password>jenkins</password>
-      </server>
-      <server>
-        <id>nexus-releases</id>
-        <username>jenkins</username>
-        <password>jenkins</password>
-      </server>
-    </servers>
+    <server>
+      <id>nexus-snapshots</id>
+      <username>jenkins</username>
+      <password>jenkins</password>
+    </server>
+    <server>
+      <id>nexus-releases</id>
+      <username>jenkins</username>
+      <password>jenkins</password>
+    </server>
   </servers>
 
   <mirrors>
