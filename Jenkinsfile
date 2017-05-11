@@ -20,7 +20,7 @@ pipeline {
         script {
            if  (BRANCH_NAME == 'master') {
 
-              sh 'git config user.email "kenenth.tu@gmail.com"'
+              sh 'git config --global user.email "kenenth.tu@gmail.com"'
 
               env['MVN_ACTION'] = 'release:clean release:prepare release:perform'
            } else {
