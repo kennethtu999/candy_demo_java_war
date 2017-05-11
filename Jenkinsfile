@@ -20,13 +20,11 @@ pipeline {
         script {
            if  (BRANCH_NAME == 'master') {
 
-              sh 'git config --global user.email "kenenth.tu@gmail.com"'
-
               env['MVN_ACTION'] = 'release:clean release:prepare release:perform'
            } else {
                env['MVN_ACTION'] = 'deploy'
            }
-           sh 'mvn -DpushChanges=false --batch-mode -s settings_${BRANCH_NAME}.xml clean package ${MVN_ACTION}'
+           sh 'mvn -Dusername=kenenthtu999 -Dpassword=github0904 --batch-mode -s settings_${BRANCH_NAME}.xml clean package ${MVN_ACTION}'
 
         }
       }
