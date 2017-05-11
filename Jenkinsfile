@@ -24,6 +24,12 @@ pipeline {
                env['MVN_ACTION'] = 'deploy'
            }
            sh 'mvn -DpushChanges=false -s settings_${BRANCH_NAME}.xml clean package ${MVN_ACTION} -D'
+
+           if  (BRANCH_NAME == 'master') {
+              def pom = readMavenPom file: 'pom.xml'
+              def version = pom.version.replace("-SNAPSHOT", ".${currentBuild.number}")
+              sh "git push ${pom.artifactId}-${version}"
+           }
         }
       }
     }
