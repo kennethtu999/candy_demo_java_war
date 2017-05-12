@@ -87,7 +87,7 @@
 			   </executions>
 			   <configuration>
 			      <serverId>Nexus_Release</serverId>
-			      <nexusUrl>${REPO}</nexusUrl>
+			      <nexusUrl>${REPO_RELEASE}</nexusUrl>
 			      <skipStaging>true</skipStaging>
 			   </configuration>
 			</plugin>
@@ -102,10 +102,10 @@
   </scm>
 	-->
 	<scm>
-		 <connection>scm:git:git@github.com:kennethtu999/candy_demo_java_war.git</connection>
+		 <connection>scm:git:https://github.com/kennethtu999/candy_demo_java_war.git</connection>
 		 <url>https://github.com/kennethtu999/candy_demo_java_war</url>
 		 <developerConnection>scm:git:https://github.com/kennethtu999/candy_demo_java_war.git</developerConnection>
-		 <tag>HEAD</tag>
+		 <tag>master</tag>
 	</scm>
 	<distributionManagement>
 		<repository>

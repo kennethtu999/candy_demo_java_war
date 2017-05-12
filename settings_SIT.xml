@@ -121,7 +121,7 @@ under the License.
     <mirror>
       <id>central</id>
       <name>self hosted repository</name>
-      <url>http://192.168.99.102:10083/repository/maven-public-SIT/</url>
+      <url>http://172.30.0.11:8081/repository/maven-public-SIT/</url>
       <mirrorOf>*</mirrorOf>
     </mirror>
   </mirrors>
