@@ -76,6 +76,7 @@ under the License.
    | "org.apache.maven.plugins" and "org.codehaus.mojo" if these are not already contained in the list.
    |-->
   <pluginGroups>
+    <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
     <!-- pluginGroup
      | Specifies a further group identifier to use for plugin lookup.
     <pluginGroup>com.your.plugins</pluginGroup>
@@ -143,6 +144,18 @@ under the License.
       </repositories>
     </profile>
   </profiles>
+  <profile>
+      <id>sonar</id>
+      <activation>
+          <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+          <!-- Optional URL to server. Default value is http://localhost:9000 -->
+          <sonar.host.url>
+            http://sonarqube_sonarqube_1:9000
+          </sonar.host.url>
+      </properties>
+  </profile>
 
   <activeProfiles>
     <activeProfile>releases</activeProfile>

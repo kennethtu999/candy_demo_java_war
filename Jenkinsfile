@@ -14,13 +14,23 @@ pipeline {
     stage('編譯, 單元測試') {
       steps {
         script {
-           sh 'mvn --batch-mode -s settings_${BRANCH_NAME}.xml clean test'
+           sh 'mvn --batch-mode -s settings_${BRANCH_NAME}.xml clean install'
         }
       }
     }
     stage('程式掃描') {
-      steps {
-        echo 'TODO 程式掃描'
+      node {
+          withSonarQubeEnv('My SonarQube Server') {
+             sh 'mvn sonar:sonar'
+          }
+      }
+      stage("Quality Gate"){
+          timeout(time: 1, unit: 'HOURS') {
+              def qg = waitForQualityGate()
+              if (qg.status != 'OK') {
+                  error "Pipeline aborted due to quality gate failure: ${qg.status}"
+              }
+          }
       }
     }
     stage('程式構建, 上傳構建儲存庫') {
