@@ -28,7 +28,7 @@ pipeline {
       }
     }
 
-    stage('Quality Gate') {
+    /*stage('Quality Gate') {
       steps {
         script {
           timeout(time: 1, unit: 'HOURS') {
@@ -39,7 +39,7 @@ pipeline {
           }
         }
       }
-    }
+    }*/
 
     stage('程式構建, 上傳構建儲存庫') {
       steps {
