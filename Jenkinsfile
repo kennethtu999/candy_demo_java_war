@@ -6,7 +6,7 @@ pipeline {
   }
   tools {
       maven 'Default'
-      jdk 'jdk8'
+      jdk 'jdk7'
   }
 
   stages {
