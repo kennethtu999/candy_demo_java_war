@@ -41,6 +41,20 @@ pipeline {
       }
     }*/
 
+  stage('構建DockerImage, 上傳構建儲存庫') {
+      steps {
+        script {
+           if  (BRANCH_NAME == 'master') {
+              env['MVN_ACTION'] = 'release:clean release:prepare release:perform'
+           } else {
+               env['MVN_ACTION'] = 'deploy'
+           }
+           sh 'docker build -t devops/candy_demo_java_war .'
+        }
+      }
+    }
+
+
     stage('程式構建, 上傳構建儲存庫') {
       steps {
         script {
