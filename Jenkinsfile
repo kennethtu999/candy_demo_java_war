@@ -10,21 +10,28 @@ pipeline {
   }
   stages {
 
+
+    stage('編譯, 單元測試') {
+      steps {
+        script {
+           sh 'mvn --batch-mode -s settings_${BRANCH_NAME}.xml clean test'
+        }
+      }
+    }
     stage('程式掃描') {
       steps {
         echo 'TODO 程式掃描'
       }
     }
-    stage('編譯, 單元測試, 程式構建, 上傳構建儲存庫') {
+    stage('程式構建, 上傳構建儲存庫') {
       steps {
         script {
            if  (BRANCH_NAME == 'master') {
-
               env['MVN_ACTION'] = 'release:clean release:prepare release:perform'
            } else {
                env['MVN_ACTION'] = 'deploy'
            }
-           sh 'mvn -Dusername=kenenthtu999 -Dpassword=github0904 --batch-mode -s settings_${BRANCH_NAME}.xml clean package ${MVN_ACTION}'
+           sh 'mvn -Dmaven.test.skip=true --batch-mode -s settings_${BRANCH_NAME}.xml install ${MVN_ACTION}'
 
         }
       }
