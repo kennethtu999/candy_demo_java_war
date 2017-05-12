@@ -9,8 +9,6 @@ pipeline {
       jdk 'jdk8'
   }
   stages {
-
-
     stage('編譯, 單元測試') {
       steps {
         script {
@@ -19,20 +17,25 @@ pipeline {
       }
     }
     stage('程式掃描') {
-      node {
-          withSonarQubeEnv('My SonarQube Server') {
-             sh 'mvn sonar:sonar'
+
+      steps {
+        script {
+          withSonarQubeEnv("SonarGate") {
+             sh "../../../sonar-scanner-2.9.0.670/bin/sonar-scanner"
           }
-      }
-      stage("Quality Gate"){
-          timeout(time: 1, unit: 'HOURS') {
-              def qg = waitForQualityGate()
-              if (qg.status != 'OK') {
-                  error "Pipeline aborted due to quality gate failure: ${qg.status}"
-              }
-          }
+        }
+
+        stage("Quality Gate"){
+            timeout(time: 1, unit: 'HOURS') {
+                def qg = waitForQualityGate()
+                if (qg.status != 'OK') {
+                    error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                }
+            }
+        }
       }
     }
+
     stage('程式構建, 上傳構建儲存庫') {
       steps {
         script {
