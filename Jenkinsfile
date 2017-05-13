@@ -36,7 +36,7 @@ pipeline {
            } else {
                env['MVN_ACTION'] = 'deploy'
            }
-           sh 'docker build --insecure-registry "http://172.30.0.11:8081/repository/docker-public-SIT/" -t devops/candy_demo_java_war .'
+           sh 'docker build -t devops/candy_demo_java_war .'
         }
       }
     }
