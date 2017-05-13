@@ -28,20 +28,7 @@ pipeline {
       }
     }
 
-    /*stage('Quality Gate') {
-      steps {
-        script {
-          timeout(time: 1, unit: 'HOURS') {
-              def qg = waitForQualityGate()
-              if (qg.status != 'OK') {
-                  error "Pipeline aborted due to quality gate failure: ${qg.status}"
-              }
-          }
-        }
-      }
-    }*/
-parallel (
-  stage('構建DockerImage, 上傳構建儲存庫') {
+    stage('構建DockerImage, 上傳構建儲存庫') {
       steps {
         script {
            if  (BRANCH_NAME == 'master') {
@@ -49,7 +36,7 @@ parallel (
            } else {
                env['MVN_ACTION'] = 'deploy'
            }
-           sh 'docker build --insecure-registry "http://172.30.0.11:8081/repository/docker-public-SIT/ -t devops/candy_demo_java_war .'
+           sh 'docker build --insecure-registry "http://172.30.0.11:8081/repository/docker-public-SIT/" -t devops/candy_demo_java_war .'
         }
       }
     }
@@ -68,11 +55,13 @@ parallel (
         }
       }
     }
+
     stage('部署測試環境') {
       steps {
         echo 'TODO 部署測試環境'
       }
     }
+
     stage('整合測試') {
       steps {
         echo 'TODO 整合測試'
