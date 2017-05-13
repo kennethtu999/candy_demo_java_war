@@ -59,7 +59,9 @@ pipeline {
 
     stage('部署測試環境') {
       steps {
-        echo 'TODO 部署測試環境'
+        script {
+           sh 'docker run -d --name candy_demo_java_war -p 10084:8888 devops/candy_demo_java_war'
+        }
       }
     }
 
