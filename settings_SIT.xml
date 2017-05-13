@@ -143,20 +143,20 @@ under the License.
           </repository>
       </repositories>
     </profile>
-  </profiles>
-  <profile>
-      <id>sonar</id>
-      <activation>
-          <activeByDefault>true</activeByDefault>
-      </activation>
-      <properties>
-          <!-- Optional URL to server. Default value is http://localhost:9000 -->
-          <sonar.host.url>
-            http://sonarqube_sonarqube_1:9000
-          </sonar.host.url>
-      </properties>
-  </profile>
+    <profile>
+        <id>sonar</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+            <!-- Optional URL to server. Default value is http://localhost:9000 -->
+            <sonar.host.url>
+              http://sonarqube_sonarqube_1:9000
+            </sonar.host.url>
+        </properties>
+    </profile>
 
+  </profiles>
   <activeProfiles>
     <activeProfile>releases</activeProfile>
   </activeProfiles>
