@@ -6,7 +6,7 @@ pipeline {
   }
   tools {
       maven 'Default'
-      jdk 'jdk7'
+      jdk 'jdk8'
   }
 
   stages {
@@ -40,7 +40,7 @@ pipeline {
         }
       }
     }*/
-
+parallel (
   stage('構建DockerImage, 上傳構建儲存庫') {
       steps {
         script {
@@ -49,7 +49,7 @@ pipeline {
            } else {
                env['MVN_ACTION'] = 'deploy'
            }
-           sh 'docker build -t devops/candy_demo_java_war .'
+           sh 'docker build --insecure-registry http://172.30.0.11:8081/repository/docker-public-SIT/" -t devops/candy_demo_java_war .'
         }
       }
     }
