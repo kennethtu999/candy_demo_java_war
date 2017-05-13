@@ -36,6 +36,7 @@ pipeline {
            } else {
                env['MVN_ACTION'] = 'deploy'
            }
+           sh 'docker stop candy_demo_java_war && docker rm candy_demo_java_war && docker rmi devops/candy_demo_java_war'
            sh 'docker build -t devops/candy_demo_java_war .'
         }
       }
