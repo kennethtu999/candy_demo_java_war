@@ -4,5 +4,5 @@ spring:
 spring:
  profiles: devel
 server:
- contextPath: /
+ contextPath: /demo
  port: 8888

@@ -13,7 +13,7 @@ pipeline {
     stage('編譯, 單元測試') {
       steps {
         script {
-           sh 'mvn -s settings_${BRANCH_NAME}.xml clean package install'
+           sh 'mvn -s settings_${BRANCH_NAME}.xml clean package spring-boot:repackage'
         }
       }
     }
