@@ -31,9 +31,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MyController {
 	Log logger = LogFactory.getLog(MyController.class);
-	
+
 	private String version = "10";
-	
+
 	@RequestMapping(value={"", "/", "welcome"}, method = RequestMethod.GET)
 	public String welcome(ModelMap model) {
 		model.put("version",version);
