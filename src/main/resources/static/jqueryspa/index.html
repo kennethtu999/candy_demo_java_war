@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Internet Banking Demo</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="page_login" class="page container-fluid hide">
+        <h1>Internet Banking</h1>
+        <div class="alert alert-danger hide">
+        </div>
+        <form  role="form" >
+          <div class="form-group">
+            <label for="identity">Identity</label>
+            <input type="text" class="form-control" id="identity" name="identity" placeholder="Identity" required/>
+          </div>
+          <div class="form-group">
+            <label for="passwd">Password</label>
+            <input type="password" class="form-control" id="passwd" name="passwd" placeholder="Password" required/>
+          </div>
+
+          <button id="page_login_action" type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+
+
+
+    <div id="page_overview" class="page container-fluid hide">
+        <h1>Overview</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Account</th>
+              <th>Balance</th>
+              <th>Do Something</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+    </div>
+
+
+    <div id="page_detail" class="page container-fluid hide">
+        <h1>Transfer Detail</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+        <button id="page_detail_action" type="button" class="btn btn-primary">Back</button>
+    </div>
+
+
+    <!-- Modal -->
+    <div id="page_transfer" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Transfer</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="uid">From</label>
+                <select name="outAccount" class="form-control" required></select>
+              </div>
+              <div class="form-group">
+                <label for="passwd">To</label>
+                <select name="inAccount" class="form-control" required></select>
+              </div>
+              <div class="form-group">
+                <label for="passwd">Amount</label>
+                <input type="number" class="form-control" name="amount" placeholder="Transfer Amount" required/>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Transfer</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="se-pre-con"></div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+
+    <script src="dataservice.js"></script>
+    <script src="pageservice.js"></script>
+
+    <script>
+
+      $(function() {
+        pageService.initLoginPage(this);
+      });
+    </script>
+
+    <script>
+      $(function() {
+        var head =$('head');
+        var evc = "<script type='text/javascript' src='eventcollector.js'/>";
+        head.append(evc);
+      });
+    </script>
+</body>
+
+</html>
