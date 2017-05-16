@@ -38,7 +38,7 @@ public class MyController {
 	public String welcome(ModelMap model) {
 		model.put("version",version);
 		model.put("timeMessage", "測試訊息" + new SimpleDateFormat("HH:mm:ss").format(new Date()));
-		return "/welcome";
+		return "welcome";
 	}
 
 	@RequestMapping(value="/result", method = RequestMethod.POST)

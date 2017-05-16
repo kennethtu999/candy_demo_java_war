@@ -4,6 +4,6 @@ spring:
 spring:
  profiles: devel
 server:
- contextPath: /demo
+ contextPath: /
  port: 8888
  error.whitelabel.enabled: true
