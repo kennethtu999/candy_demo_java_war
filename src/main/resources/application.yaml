@@ -6,4 +6,4 @@ spring:
 server:
  contextPath: /demo
  port: 8888
- error.whitelabel.enabled: false
+ error.whitelabel.enabled: true
