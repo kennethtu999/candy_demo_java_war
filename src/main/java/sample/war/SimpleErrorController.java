@@ -13,7 +13,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
-@RestController
+
 @RequestMapping("/error")
 public class SimpleErrorController implements ErrorController {
 

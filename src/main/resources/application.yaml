@@ -7,3 +7,6 @@ server:
  contextPath: /
  port: 8888
  error.whitelabel.enabled: true
+
+logging.level:
+ org.springframework.web: TRACE
